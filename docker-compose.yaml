@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+    backend:
+        build: ./backend/
+        restart: always
+        container_name: backend
+    frontend:
+        build: ./frontend/
+        restart: always
+        container_name: frontend
+        depends_on:
+            - backend
+        ports:
+            - 8080:8080
